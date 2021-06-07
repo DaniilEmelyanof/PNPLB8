@@ -1,0 +1,33 @@
+package Lab_8;
+ 
+
+public class Evklid_algoritm_for_arrays
+{
+    public static int getNOD(int first, int second 
+    {
+        if (first == 0)
+            return second;
+        if (first < second)
+        {
+            int t = first;
+            first = second;
+            second = t;
+        }
+        while (second > 0)
+        {
+            int temp = second;
+            second = first % second;
+            first = temp;
+        }
+        return first;
+    }
+
+    public int algorithm(int[] array)
+    {
+        int result = getNOD(Math.abs(array[0]), Math.abs(array[1]));
+        for (int i = 2; i < array.length; i++)
+            result = getNOD(result, Math.abs(array[i]));
+       return result;
+    }
+ }
+ 
